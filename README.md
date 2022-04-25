@@ -8,7 +8,7 @@ Setting up dockers for laravel project in development
 
 # Docker up
 1. After copy dockers'folder to you laravel's project goto directory dockers.
-2. run command docker-compose up -d until finished.
+2. run command `docker-compose up -d` until finished.
 
 # References
 1. https://medium.com/@jinawongjino/%E0%B8%A1%E0%B8%B2%E0%B8%97%E0%B8%B3-docker-environment-%E0%B8%81%E0%B8%B1%E0%B8%9A-laravel-project-%E0%B8%81%E0%B8%B1%E0%B8%99-25feb02e720f
