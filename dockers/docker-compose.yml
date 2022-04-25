@@ -1,0 +1,58 @@
+version: '2' # version docker-compose
+services:
+
+  # PHP Container
+  php:
+    container_name: laravel_php # Container's name
+    build: ./docker-php # Dockerfile's path
+    working_dir: /var/www/weblemonaide # work's directory
+    volumes:
+      # volume's files from local to container
+      - ../:/var/www/weblemonaide 
+
+  # NGINX Container Web Server
+  nginx:
+    container_name: laravel_nginx # Container's name
+    build: ./docker-nginx # Dockerfile's path
+    working_dir: /var/www/weblemonaide # work's directory
+    volumes_from:
+      - php # voloume from php container
+    ports:
+      - 8000:80 # port [host]:[container]
+
+  # DATABASE Container
+  database:
+    container_name: laravel_mysql # Container's name
+    image: mysql:5.7 # MySQL's Image
+    volumes:
+      - ./mysql/data:/var/lib/mysql # volume's files from local to container
+    environment:
+      - MYSQL_DATABASE=lemonaide # Database's name after created container
+      - MYSQL_USER=lemonaide # username after created container
+      - MYSQL_PASSWORD=lemonaide # password after created container
+      - MYSQL_ROOT_PASSWORD=root # password for root mysql container
+    ports:
+        - "3306:3306" # port [host]:[container]
+
+  #COMPOSER Container
+  composer: # Container for install laravel's package it starts only once time and stops working
+    container_name: laravel_composer # Container's name
+    build: ./docker-php # Dockerfile's path
+    working_dir: /var/www/weblemonaide # work's directory
+    volumes_from:
+      - php # voloume from php container
+    command: "composer install" # install package
+
+
+  # PHPMYADMIN Container (If you are using phpmyadmin)
+  myadmin:
+    image: phpmyadmin/phpmyadmin # Container's image
+    container_name: laravel_phpmyadmin # Container's name
+    ports:
+        - 8890:80 # port [host]:[container]
+    environment:
+        - PMA_ARBITRARY=1
+        - PMA_HOST=database
+    restart: always
+    depends_on:
+        - database # Connect to database container
