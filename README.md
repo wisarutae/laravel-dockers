@@ -2,9 +2,9 @@
 Setting up dockers for laravel project in development
 
 # Setting up
-1. Edit docker-compose.yml
-2. Checking Dockerfile in docker-php and docker-nginx that you need.
-3. Copy dockers to laravel's project.
+1. Edit `docker-compose.yml`
+2. Checking `Dockerfile` in `docker-php` and `docker-nginx` that you need.
+3. Copy `dockers` to laravel's project.
 
 # Docker up
 1. After copy dockers'folder to you laravel's project goto directory dockers.
