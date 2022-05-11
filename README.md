@@ -4,12 +4,15 @@ Setting up dockers for laravel project in development
 # Setting up
 1. Edit `docker-compose.yml` (you can comment `#` phpmyadmin's container if you don't want to use it).
 2. Checking `Dockerfile` in `docker-php` and `docker-nginx` that you need.
-3. Copy `dockers` to laravel's project.
+(Deprecated) 3. Copy `dockers` to laravel's project. 
+3. Clone laravel-dockers's project into you laravel's project
 
 # Docker up
-1. After copy dockers'folder to you laravel's project goto directory dockers.
+(Deprecated) 1. After copy dockers'folder to your laravel's project goto directory dockers.
+1. After clone laravel-dockers's project to your laravel's project and goto laravel-dockers's directory
 2. run command `docker-compose up -d` until finished.
-3. `.gitignore` add path `/dockers/mysql` do not push it to git, just keep it in local.
+(Deprecated) 3. `.gitignore` add path `/dockers/mysql` do not push it to git, just keep it in local.
+3. `.gitignore` add path `/laravel-dockers/mysql` do not push it to git, just keep it in local.
 4. You can remove container `laravel_phpmyadmin` and `laravel_composer` if you don't want to use it after docker up.
 
 # References
