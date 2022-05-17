@@ -3,6 +3,8 @@ Setting up dockers for laravel project in development
 
 ## Setting up
 1. Edit `docker-compose.yml` (you can comment `#` phpmyadmin's container if you don't want to use it).
+  Change `working_dir` and database `environment`
+2. Edit docker-nginx > `default.conf` root's directory `/var/www/project_public`;
 2. Checking `Dockerfile` in `docker-php` and `docker-nginx` that you need.
 > (Deprecated) 3. Copy `dockers` to laravel's project. 
 3. Clone laravel-dockers's project into you laravel's project
